@@ -1,6 +1,5 @@
 public class ConditionalChallenge {
     public static void main(String[] args) {
-        // Your code will go here
 
         // Part 1: Temperature Converter
         double temperature = 70;
@@ -23,7 +22,7 @@ public class ConditionalChallenge {
 
         // Part 3: Season Determiner
         int temp = 75; // Prevent reusing variables
-        String season = "";
+        String season = null;
         if (temp > 80) {
             season = "Summer";
         } else if (temp >= 60) {
@@ -33,24 +32,26 @@ public class ConditionalChallenge {
         } else {
             season = "Winter";
         }
-        System.out
-                .println("The temperature is " + temp + " degrees. The season is " + season + ".");
+        System.out.println("The temperature is " + temp + " degrees. The season is " + season + ".");
 
 
         // Part 4: Number Classifier
-        int number = 22;
+        int number = 220;
+        String sign = null;
+        String descriptor = null;
         if (number > 0) {
-            System.out.println("Positive");
+            sign = "Positive";
         } else if (number < 0) {
-            System.out.println("Negative");
+            sign = "Negative";
         } else {
-            System.out.println("Zero");
+            sign = "Zero";
         }
         if (number > 100) {
-            System.out.println("Large");
+            descriptor = ", and Large";
         } else if (number < -100) {
-            System.out.println("Very Negative");
+            descriptor = ", and Very Negative";
         }
+        System.out.println(number + " is " + sign + descriptor);
 
     }
 }
