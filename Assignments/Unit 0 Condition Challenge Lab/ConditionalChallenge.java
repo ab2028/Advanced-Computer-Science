@@ -32,7 +32,8 @@ public class ConditionalChallenge {
         } else {
             season = "Winter";
         }
-        System.out.println("The temperature is " + temp + " degrees. The season is " + season + ".");
+        System.out
+                .println("The temperature is " + temp + " degrees. The season is " + season + ".");
 
 
         // Part 4: Number Classifier
