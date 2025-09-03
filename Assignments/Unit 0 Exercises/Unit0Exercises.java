@@ -32,11 +32,11 @@ public class Unit0Exercises {
     }
 
     public int diff21(int n) {
-        return Math.abs(n-21) + Math.max(0, n-21);
+        return Math.abs(n - 21) + Math.max(0, n - 21);
     }
 
     public double flooringCalculator(int sqft, double pricePerSqft) {
-        return Math.max(0,sqft*pricePerSqft);
+        return Math.max(0, sqft * pricePerSqft);
     }
 
 }
