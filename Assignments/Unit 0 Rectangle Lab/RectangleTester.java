@@ -15,12 +15,12 @@ public class RectangleTester {
         System.out.println(rect1.toString());
         System.out.println(rect2.toString());
 
-        System.out.println(rect1.equals(rect2));
+        System.out.println("Rectangle 1 = Rectangle 2 is " + rect1.equals(rect2) + ".");
 
-        System.out.println(rect1.calculateDiagonal());
-        System.out.println(rect2.calculateDiagonal());
+        System.out.println("Rectangle 1 Diagonal: " + rect1.calculateDiagonal());
+        System.out.println("Rectangle 2 Diagonal: " + rect2.calculateDiagonal());
 
 
 
-    } 
+    }
 }
