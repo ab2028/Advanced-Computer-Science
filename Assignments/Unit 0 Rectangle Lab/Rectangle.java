@@ -13,20 +13,20 @@ public class Rectangle {
         this.length = length;
         this.width = width;
         this.rotAngle = rotAngle;
-        this.corner1 = corner1;
-        this.corner2 = corner2;
-        this.corner3 = corner3;
-        this.corner4 = corner4;
+        this.corner1 = new Point(0,0);
+        this.corner2 = new Point(length, 0);
+        this.corner3 = new Point(0,width);
+        this.corner4 = new Point(length,width);
     }
 
     public Rectangle() {
         length = 2;
         width = 1;
         rotAngle = 0;
-        corner1 = new Point(0,0);
-        corner2 = new Point(0,1);
-        corner3 = new Point(1,2);
-        corner4 = new Point(2,0);
+        this.corner1 = new Point(0,0);
+        this.corner2 = new Point(length, 0);
+        this.corner3 = new Point(0,width);
+        this.corner4 = new Point(length,width);
     }
 
     // getters
@@ -38,6 +38,26 @@ public class Rectangle {
         return width;
     }
 
+    public double getRotAngle() {
+        return rotAngle;
+    }
+
+    public Point getCorner1() {
+        return corner1;
+    }
+
+    public Point getCorner2() {
+        return corner2;
+    }
+
+    public Point getCorner3() {
+        return corner3;
+    }
+
+    public Point getCorner4() {
+        return corner4;
+    }
+
 
     // setters
     public void setLength(int input) {
@@ -46,6 +66,26 @@ public class Rectangle {
 
     public void setWidth(int input) {
         width = input;
+    }
+
+    public double setRotAngle(double rotAngle) {
+        this.rotAngle = rotAngle;
+    }
+
+    public void setCorner1(Point corner1) {
+        this.corner1 = corner1;
+    }
+
+    public void setCorner2(Point corner2) {
+        this.corner2 = corner2;
+    }
+
+    public void setCorner3(Point corner3) {
+        this.corner3 = corner3;
+    }
+
+    public void setCorner4(Point corner4) {
+        this.corner4 = corner4;
     }
 
     // methods
@@ -69,9 +109,19 @@ public class Rectangle {
         return Math.sqrt((Math.pow(length, 2) + Math.pow(width, 2)));
     }
 
-    public void rotateCorners() {
+    
 
+    public void rotateCorners(double degrees) {
+        rotAngle = degrees;
+        corner1.rotatePoint(degrees);
+        corner2.rotatePoint(degrees);
+        corner3.rotatePoint(degrees);
+        corner4.rotatePoint(degrees);
     }
+
+    
+
+    
 
 
 

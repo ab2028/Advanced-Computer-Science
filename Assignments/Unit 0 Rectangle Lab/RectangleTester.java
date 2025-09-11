@@ -19,8 +19,8 @@ public class RectangleTester {
 
         System.out.println("Rectangle 1 Diagonal: " + rect1.calculateDiagonal());
         System.out.println("Rectangle 2 Diagonal: " + rect2.calculateDiagonal());
-
-
-
     }
+
+
+    
 }

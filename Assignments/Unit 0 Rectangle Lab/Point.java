@@ -7,11 +7,11 @@ public class Point {
         this.y = y;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
@@ -26,4 +26,12 @@ public class Point {
     public String toString() {
         return "This point has coordinates (" + x + ", " + y + ").";
     }
+
+    public void rotatePoint(double degrees) {
+        double convDeg = Math.toRadians(degrees);
+        x = (x * Math.cos(convDeg) - y * Math.sin(convDeg));
+        y = (x * Math.sin(convDeg) + y * Math.cos(convDeg));
+    }
+
+
 }
