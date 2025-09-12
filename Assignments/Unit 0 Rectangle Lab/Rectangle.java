@@ -68,7 +68,7 @@ public class Rectangle {
         width = input;
     }
 
-    public double setRotAngle(double rotAngle) {
+    public void setRotAngle(double rotAngle) {
         this.rotAngle = rotAngle;
     }
 
@@ -90,7 +90,8 @@ public class Rectangle {
 
     // methods
     public String toString() {
-        return "This rectangle has a width of " + width + " and a length of " + length + ".";
+        return "This rectangle has a width of " + width + " and a length of " + length + " and its corners are " + corner1 + corner2 + corner3 + corner4;
+
     }
 
     public boolean equals(Rectangle other) {
