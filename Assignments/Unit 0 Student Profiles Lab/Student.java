@@ -6,45 +6,48 @@ public class Student {
     public Student(String name, int grade) {
         this.name = name;
         this.grade = grade;
-        this.id = this.generateId();
+        this.id = generateId();
     }
 
-    public Student(String name){
+    public Student(String name) {
         this.name = name;
         this.grade = 10;
-        this.id = this.generateId();
+        this.id = generateId();
     }
 
-    public String getID(){
+    public String getID() {
         return this.id;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public int getGrade(){
+    public int getGrade() {
         return this.grade;
     }
 
-    public void setID(){
-        this.id = this.generateId();
+    public void setID() {
+        this.id = generateId();
     }
 
-    public void setName(String input){
+    public void setName(String input) {
         this.name = input;
     }
 
-    public void setGrade(int input){
+    public void setGrade(int input) {
         this.grade = input;
     }
 
 
     public String toString() {
-        return this.name + " is a " + this.grade + "th grade student. Their id is " + this.id; // when is this redundant?
+        return this.name + " is a " + this.grade + "th grade student. Their id is " + this.id; // when
+                                                                                               // is
+                                                                                               // this
+                                                                                               // redundant?
     }
 
-    public boolean equals(Student other){
+    public boolean equals(Student other) {
         return this.name == other.name && this.id == other.id && this.grade == other.grade;
     }
 
@@ -62,4 +65,4 @@ public class Student {
     }
 
 
-    }
+}
