@@ -20,7 +20,8 @@ public class StudentTester {
         System.out.println(jock.toString());
         System.out.println(cheerleader.toString());
 
-        System.out.println("Is Badstu Dent equal to Goodstu Dent? " + badStudent.equals(goodStudent));
+        System.out.println
+        ("Is Badstu Dent equal to Goodstu Dent? " + badStudent.equals(goodStudent));
     }
 
 
