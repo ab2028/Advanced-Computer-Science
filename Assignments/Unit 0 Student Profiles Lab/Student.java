@@ -41,10 +41,7 @@ public class Student {
 
 
     public String toString() {
-        return this.name + " is a " + this.grade + "th grade student. Their id is " + this.id; // when
-                                                                                               // is
-                                                                                               // this
-                                                                                               // redundant?
+        return this.name + " is a " + this.grade + "th grade student. Their id is " + this.id;
     }
 
     public boolean equals(Student other) {
