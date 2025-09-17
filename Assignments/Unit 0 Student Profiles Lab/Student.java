@@ -15,7 +15,7 @@ public class Student {
         this.id = generateId();
     }
 
-    public String getID() {
+    public String getId() {
         return this.id;
     }
 
@@ -27,7 +27,7 @@ public class Student {
         return this.grade;
     }
 
-    public void setID() {
+    public void setId() {
         this.id = generateId();
     }
 
