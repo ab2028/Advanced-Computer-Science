@@ -27,8 +27,8 @@ public class Student {
         return this.grade;
     }
 
-    public void setId() {
-        this.id = generateId();
+    public void setId(String input) {
+        this.id = input;
     }
 
     public void setName(String input) {
@@ -45,7 +45,9 @@ public class Student {
     }
 
     public boolean equals(Student other) {
-        return this.name == other.name && this.id == other.id && this.grade == other.grade;
+        return this.name.equals(other.name)
+            && this.id.equals(other.id)
+            && this.grade == other.grade;
     }
 
     public String generateId() {
@@ -57,7 +59,7 @@ public class Student {
         String d6 = "" + (int) (Math.random() * 10);
         String d7 = "" + (int) (Math.random() * 10);
 
-        return d1 + d2 + d3 + d4 + d5 + d6 + d7;
+        return d1 + d2 + d3 + "-" + d4 + d5 + d6 + d7;
 
     }
 
