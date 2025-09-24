@@ -46,6 +46,28 @@ public class Bank {
         }
     }
 
+    public double getEmployeeRatio() {
+        return (double) numberOfLoanOfficers / numberOfTellers;
+    }
+
+    public void fireMembers(int numberToFire, boolean isLoanOfficer) {
+        if (isLoanOfficer) {
+            numberOfLoanOfficers = Math.max(0, numberOfLoanOfficers - numberToFire);
+        } else {
+            numberOfTellers = Math.max(0, numberOfTellers - numberToFire);
+        }
+    }
+
+    public void transferEmployee(boolean fromLoanOfficer) {
+        if (fromLoanOfficer) {
+            numberOfLoanOfficers--;
+            numberOfTellers++;
+        } else {
+            numberOfTellers--;
+            numberOfLoanOfficers++;
+        }
+    }
+
 
 
 }

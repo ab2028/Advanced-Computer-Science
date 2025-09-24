@@ -14,5 +14,22 @@ public class BankTester {
 
         System.out.println(bank2); 
 
+        bank1.hireMembers(2, true);
+
+        System.out.println(bank1);
+
+
+
+        bank1.fireMembers(1, false);
+        System.out.println(bank1);
+
+
+        System.out.println("Bank 1 has a loan officer : teller ratio of " + bank1.getEmployeeRatio() + ".");
+
+        bank1.transferEmployee(true);
+
+        System.out.println(bank1);
+
+
     }
 }
