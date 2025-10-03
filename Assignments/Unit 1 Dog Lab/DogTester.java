@@ -42,16 +42,16 @@ public class DogTester {
 
         // Test static pickup() method
         System.out.println(Dog.pickup(dog1, "Alice"));
-        System.out.println("dog1 (DOGGGGG) still in facility?" + dog1.isStillInFacility());
+        System.out.println("dog1 (DOGGGGG) still in facility? " + dog1.isStillInFacility());
         System.out.println(Dog.pickup(dog1, "John"));
-        System.out.println("dog1 (DOGGGGG) still in facility?" + dog1.isStillInFacility());
+        System.out.println("dog1 (DOGGGGG) still in facility? " + dog1.isStillInFacility());
 
         // Test static checkIn() method
         Dog goodDog = new Dog();
         goodDog.setStillInFacility(false);
-        System.out.println("goodDog (Fido) still in facility?" + goodDog.isStillInFacility());
+        System.out.println("goodDog (Fido) still in facility? " + goodDog.isStillInFacility());
         Dog.checkIn(goodDog, "John");
-        System.out.println("goodDog (Fido) still in facility?" + goodDog.isStillInFacility());
+        System.out.println("goodDog (Fido) still in facility? " + goodDog.isStillInFacility());
         System.out.println("goodDog (Fido)'s new owner: " + goodDog.getOwnerName());
 
 
