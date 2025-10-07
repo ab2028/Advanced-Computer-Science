@@ -27,9 +27,9 @@ public class DogTester {
         // Test specialized methods
         System.out.println("Dog 1 Char: " + Dog.generateDogChar(123));
         System.out.println("Dog 3 Char: " + Dog.generateDogChar(693));
-        System.out.println("Dog 1 Tag: " + dog1.generateDogTag());
-        System.out.println("Dog 2 Tag: " + dog2.generateDogTag());
-        System.out.println("Dog 3 Tag: " + dog3.generateDogTag());
+        System.out.println("Dog 1 Tag: " + PawesomeUtils.generateDogTag(dog1.getDogId(), dog1.getDogChar()));
+        System.out.println("Dog 2 Tag: " + PawesomeUtils.generateDogTag(dog2.getDogId(), dog2.getDogChar()));
+        System.out.println("Dog 3 Tag: " + PawesomeUtils.generateDogTag(dog3.getDogId(), dog3.getDogChar()));
 
         // Test equals method
         Dog dog4 = new Dog("DOGGGGG", "Alice", 6, 123);
@@ -53,6 +53,25 @@ public class DogTester {
         Dog.checkIn(goodDog, "John");
         System.out.println("goodDog (Fido) still in facility? " + goodDog.isStillInFacility());
         System.out.println("goodDog (Fido)'s new owner: " + goodDog.getOwnerName());
+
+        // Test validateDogId method
+        System.out.println(PawesomeUtils.validateDogId(50));
+        System.out.println(PawesomeUtils.validateDogId(100));
+        System.out.println(PawesomeUtils.validateDogId(562));
+        System.out.println(PawesomeUtils.validateDogId(999));
+        System.out.println(PawesomeUtils.validateDogId(1000));
+
+        // Test validateDogTag method
+        Dog dogA = new Dog("TestDog", "Bob", 4, 150);
+        Dog dogB = new Dog("TestDog", "Bob", 4, 85); // Invalid ID
+        Dog dogC = new Dog("TestDog", "Bob", 4, 999); 
+
+        System.out.println(PawesomeUtils.validateDogTag(dogA));
+        System.out.println(PawesomeUtils.validateDogTag(dogB));
+        System.out.println(PawesomeUtils.validateDogTag(dogC));
+
+
+
 
 
         

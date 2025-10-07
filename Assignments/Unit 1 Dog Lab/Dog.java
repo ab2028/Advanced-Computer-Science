@@ -13,8 +13,7 @@ public class Dog {
         this.age = age;
         this.dogId = dogId;
         this.dogChar = Dog.generateDogChar(dogId);
-        this.dogTag = generateDogTag();
-        this.stillInFacility = true;
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);        this.stillInFacility = true;
     }
 
     public Dog() {
@@ -23,7 +22,7 @@ public class Dog {
         age = 3;
         dogId = 123;
         dogChar = Dog.generateDogChar(dogId);
-        dogTag = generateDogTag();
+        dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         stillInFacility = true;
 
     }
@@ -97,9 +96,6 @@ public class Dog {
                 && this.stillInFacility == other.stillInFacility;
     }
 
-    public String generateDogTag() {
-        return "" + dogId + dogChar;
-    }
 
     // sum of digits of ID (3 digits), mod 10, add 'F'.
     public static char generateDogChar(int dogID) { 
