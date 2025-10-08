@@ -8,7 +8,7 @@ public class PawesomeUtils {
         if (dogId >= 100 && dogId <= 999) {
             return dogId;
         } else {
-            return (int) (Math.random() * 899 + 100); // 100 = starting number
+            return (int) (Math.random() * 900  + 100); // 100 = starting number, 999 = ending number, inclusive.
         } // but what if the random number somehow equals dogId....
     }
 
