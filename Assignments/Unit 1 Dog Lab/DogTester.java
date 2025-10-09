@@ -25,8 +25,8 @@ public class DogTester {
         System.out.println(dog2);
 
         // Test specialized methods
-        System.out.println("Dog 1 Char: " + Dog.generateDogChar(123));
-        System.out.println("Dog 3 Char: " + Dog.generateDogChar(693));
+        System.out.println("Dog 1 Char: " + PawesomeUtils.generateDogChar(123));
+        System.out.println("Dog 3 Char: " + PawesomeUtils.generateDogChar(693));
         System.out.println("Dog 1 Tag: " + PawesomeUtils.generateDogTag(dog1.getDogId(), dog1.getDogChar()));
         System.out.println("Dog 2 Tag: " + PawesomeUtils.generateDogTag(dog2.getDogId(), dog2.getDogChar()));
         System.out.println("Dog 3 Tag: " + PawesomeUtils.generateDogTag(dog3.getDogId(), dog3.getDogChar()));
@@ -41,16 +41,16 @@ public class DogTester {
         System.out.println(dog1);
 
         // Test static pickup() method
-        System.out.println(Dog.pickup(dog1, "Alice"));
+        System.out.println(PawesomeUtils.pickup(dog1, "Alice"));
         System.out.println("dog1 (DOGGGGG) still in facility? " + dog1.isStillInFacility());
-        System.out.println(Dog.pickup(dog1, "John"));
+        System.out.println(PawesomeUtils.pickup(dog1, "John"));
         System.out.println("dog1 (DOGGGGG) still in facility? " + dog1.isStillInFacility());
 
         // Test static checkIn() method
         Dog goodDog = new Dog();
         goodDog.setStillInFacility(false);
         System.out.println("goodDog (Fido) still in facility? " + goodDog.isStillInFacility());
-        Dog.checkIn(goodDog, "John");
+        PawesomeUtils.checkIn(goodDog, "John");
         System.out.println("goodDog (Fido) still in facility? " + goodDog.isStillInFacility());
         System.out.println("goodDog (Fido)'s new owner: " + goodDog.getOwnerName());
 
@@ -62,13 +62,29 @@ public class DogTester {
         System.out.println(PawesomeUtils.validateDogId(1000));
 
         // Test validateDogTag method
-        Dog dogA = new Dog("TestDog", "Bob", 4, 150);
-        Dog dogB = new Dog("TestDog", "Bob", 4, 85); // Invalid ID
-        Dog dogC = new Dog("TestDog", "Bob", 4, 999); 
+        Dog dogA = new Dog("TestDog", "Bob", 1, 150);
+        Dog dogB = new Dog("TestDog", "Jack", 2, 85); // Invalid ID
+        Dog dogC = new Dog("TestDog", "Julia", 5, 999); 
 
         System.out.println(PawesomeUtils.validateDogTag(dogA));
         System.out.println(PawesomeUtils.validateDogTag(dogB));
         System.out.println(PawesomeUtils.validateDogTag(dogC));
+
+        // Test checkIn with counterfeit dog
+        Dog counterfeitDog = new Dog("FakeDog", "Eve", 3, 200);
+        counterfeitDog.setDogTag("999Z"); // Invalid tag
+        PawesomeUtils.checkIn(counterfeitDog, "Eve");
+
+        // Test age conversion methods
+
+        System.out.println("Dog A age in human years: " + PawesomeUtils.convertAgeToHumanAge(dogA));
+        System.out.println("Dog B age in human years: " + PawesomeUtils.convertAgeToHumanAge(dogB));
+        System.out.println("Dog C age in human years: " + PawesomeUtils.convertAgeToHumanAge(dogC));
+
+        System.out.println("Human age 10 in dog years: " + PawesomeUtils.convertAgeToDogYears(10));
+        System.out.println("Human age 25 in dog years: " + PawesomeUtils.convertAgeToDogYears(25));
+        System.out.println("Human age 50 in dog years: " + PawesomeUtils.convertAgeToDogYears(50));
+
 
 
 
