@@ -21,7 +21,7 @@ public class NameOps {
         if (indexOfFirstSpace(nameSubstring) == -1) {
             return -1;
         }
-        return indexOfFirstSpace(nameSubstring) + + indexOfFirstSpace(name) + 1;
+        return indexOfFirstSpace(nameSubstring) + +indexOfFirstSpace(name) + 1;
 
     }
 
@@ -36,15 +36,19 @@ public class NameOps {
         if (indexOfFirstSpace(name) == -1) {
             return "";
         }
-        return name.substring(indexOfFirstSpace(name), name.length());
+        if (indexOfSecondSpace(name) == -1) {
+            return name.substring(indexOfFirstSpace(name) + 1, name.length());
+
+        }
+        return name.substring(indexOfSecondSpace(name) + 1, name.length());
+        
     }
 
     public static String findMiddleName(String name) {
-        if (indexOfSecondSpace(name) == -1) {  // if index of first space = -1, this is also -1 so this case is already covered
+        if (indexOfSecondSpace(name) == -1) { // if ind of 1st sp = -1, 2nd is also -1 so alr covd
             return "";
         }
-        return name.substring(indexOfFirstSpace(name) + 1, indexOfSecondSpace(name)); // should be +1!
-    
+        return name.substring(indexOfFirstSpace(name) + 1, indexOfSecondSpace(name)); // shd be +1!
     }
 
     public static String generateLastFirstMidInitial(String name) {
@@ -54,7 +58,8 @@ public class NameOps {
         if (indexOfSecondSpace(name) == -1) {
             return findLastName(name) + ", " + findFirstName(name);
         }
-        return findLastName(name) + ", " + findFirstName(name) + " " + findMiddleName(name).charAt(0) + ".";
+        return findLastName(name) + ", " + findFirstName(name) + " "
+                + findMiddleName(name).charAt(0) + ".";
 
     }
 
