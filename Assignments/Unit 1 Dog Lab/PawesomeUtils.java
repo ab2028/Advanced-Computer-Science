@@ -2,9 +2,9 @@ public class PawesomeUtils { // Helpers for Dog class
 
 
     // sum of digits of ID (3 digits), mod 10, add 'F'.
-    public static char generateDogChar(int dogID) {
+    public static char generateDogChar(int dogId) {
         int sum;
-        sum = (dogID / 100) + ((dogID / 10) % 10) + (dogID % 10);
+        sum = (dogId / 100) + ((dogId / 10) % 10) + (dogId % 10);
         return (char) ('F' + (sum % 10));
     }
 
@@ -18,15 +18,17 @@ public class PawesomeUtils { // Helpers for Dog class
         }
     }
 
-    public static void checkIn(Dog dog, String personName) { // validate dog tag; only if valid let check in
+    public static void checkIn(Dog dog, String personName) { 
+        // validate dog tag; only if valid let check in
         // validate:
         if (validateDogTag(dog)) {
             dog.setStillInFacility(true);
             dog.setOwnerName(personName);
         } else {
-            System.out.println("COUNTERFEIT DOG DETECTED " + dog.getName() + " ENTRY DENIED GET OUT ! ! !");
+            System.out.println(
+                    "COUNTERFEIT DOG DETECTED " + dog.getName() + " ENTRY DENIED GET OUT ! ! !");
         }
-        
+
     }
 
     public static int convertAgeToHumanAge(Dog dog) {
@@ -47,7 +49,7 @@ public class PawesomeUtils { // Helpers for Dog class
             return 2 + (humanYears - 24) / 5;
         }
     }
-       
+
 
     public static String generateDogTag(int dogId, char dogChar) {
         return "" + dogId + dogChar;
@@ -57,7 +59,7 @@ public class PawesomeUtils { // Helpers for Dog class
         if (dogId >= 100 && dogId <= 999) {
             return dogId;
         } else {
-            return (int) (Math.random() * 900  + 100); // 100 = starting number, 999 = ending number, inclusive.
+            return (int) (Math.random() * 900 + 100); // 100 = st #, 999 = end #, inclusive
         } // but what if the random number somehow equals dogId....
     }
 

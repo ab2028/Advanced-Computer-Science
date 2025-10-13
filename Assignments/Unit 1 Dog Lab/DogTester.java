@@ -7,12 +7,18 @@ public class DogTester {
 
         // Print initial values
         System.out.println("Initial Values:");
-        
+
         // Test getters
-        System.out.println(dog1.getName() + " " + dog1.getOwnerName() + " " + dog1.getAge() + " " + dog1.getDogId() + " " + dog1.getDogChar() + " " + dog1.getDogTag() + " " + dog1.isStillInFacility()); 
-        System.out.println(dog2.getName() + " " + dog2.getOwnerName() + " " + dog2.getAge() + " " + dog2.getDogId() + " " + dog2.getDogChar() + " " + dog2.getDogTag() + " " + dog2.isStillInFacility());
-        System.out.println(dog3.getName() + " " + dog3.getOwnerName() + " " + dog3.getAge() + " " + dog3.getDogId() + " " + dog3.getDogChar() + " " + dog3.getDogTag() + " " + dog3.isStillInFacility());
-      
+        System.out.println(dog1.getName() + " " + dog1.getOwnerName() + " " + dog1.getAge() + " "
+                + dog1.getDogId() + " " + dog1.getDogChar() + " " + dog1.getDogTag() + " "
+                + dog1.isStillInFacility());
+        System.out.println(dog2.getName() + " " + dog2.getOwnerName() + " " + dog2.getAge() + " "
+                + dog2.getDogId() + " " + dog2.getDogChar() + " " + dog2.getDogTag() + " "
+                + dog2.isStillInFacility());
+        System.out.println(dog3.getName() + " " + dog3.getOwnerName() + " " + dog3.getAge() + " "
+                + dog3.getDogId() + " " + dog3.getDogChar() + " " + dog3.getDogTag() + " "
+                + dog3.isStillInFacility());
+
 
 
         // Test setters
@@ -27,13 +33,16 @@ public class DogTester {
         // Test specialized methods
         System.out.println("Dog 1 Char: " + PawesomeUtils.generateDogChar(123));
         System.out.println("Dog 3 Char: " + PawesomeUtils.generateDogChar(693));
-        System.out.println("Dog 1 Tag: " + PawesomeUtils.generateDogTag(dog1.getDogId(), dog1.getDogChar()));
-        System.out.println("Dog 2 Tag: " + PawesomeUtils.generateDogTag(dog2.getDogId(), dog2.getDogChar()));
-        System.out.println("Dog 3 Tag: " + PawesomeUtils.generateDogTag(dog3.getDogId(), dog3.getDogChar()));
+        System.out.println(
+                "Dog 1 Tag: " + PawesomeUtils.generateDogTag(dog1.getDogId(), dog1.getDogChar()));
+        System.out.println(
+                "Dog 2 Tag: " + PawesomeUtils.generateDogTag(dog2.getDogId(), dog2.getDogChar()));
+        System.out.println(
+                "Dog 3 Tag: " + PawesomeUtils.generateDogTag(dog3.getDogId(), dog3.getDogChar()));
 
         // Test equals method
         Dog dog4 = new Dog("DOGGGGG", "Alice", 6, 123);
-        System.out.println("dog1 equals dog3: " + dog1.equals(dog3)); 
+        System.out.println("dog1 equals dog3: " + dog1.equals(dog3));
         System.out.println("dog1 equals dog4: " + dog1.equals(dog4));
 
         // Test edge case for stillInFacility
@@ -64,7 +73,7 @@ public class DogTester {
         // Test validateDogTag method
         Dog dogA = new Dog("TestDog", "Bob", 1, 150);
         Dog dogB = new Dog("TestDog", "Jack", 2, 85); // Invalid ID
-        Dog dogC = new Dog("TestDog", "Julia", 5, 999); 
+        Dog dogC = new Dog("TestDog", "Julia", 5, 999);
 
         System.out.println(PawesomeUtils.validateDogTag(dogA));
         System.out.println(PawesomeUtils.validateDogTag(dogB));
@@ -87,10 +96,6 @@ public class DogTester {
 
 
 
-
-
-
-        
     }
-    
+
 }
