@@ -31,5 +31,7 @@ public class ScannerTest {
         
         System.out.println("Great! Thank you for supporting big mango!");
 
+        keyboard.close();
+
 }
 }
