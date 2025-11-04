@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class RPSGame {
+
+    private static final Scanner scanner = new Scanner(System.in);
     private Player player;
     private NPC opponent;
 
@@ -10,13 +12,7 @@ public class RPSGame {
     }
 
     public void start() {
-        /*
-         * This method initializes a Scanner object and prompts the user for their name and choice.
-         * If the user's choice is invalid, they get two more attempts. After three failed attempts,
-         * the program assigns a random choice and notifies the user. Once a valid name and choice
-         * are obtained, the method updates the player object's name and choice instance variables.
-         */
-        Scanner scanner = new Scanner(System.in);
+
         System.out.print("Enter your name: ");
         String name = scanner.nextLine();
         String choice = "";
@@ -79,5 +75,9 @@ public class RPSGame {
         } else {
             return "scissors";
         }
+    }
+
+    public static void closeScanner() {
+        scanner.close();
     }
 }

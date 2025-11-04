@@ -9,6 +9,7 @@ public class RPSGameTester {
             game.start();
             System.out.println(game.displayResults());
         }
+        RPSGame.closeScanner();
 
     }
 }

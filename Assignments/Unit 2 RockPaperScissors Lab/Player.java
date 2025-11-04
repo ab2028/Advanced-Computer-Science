@@ -15,8 +15,12 @@ public class Player {
     }
 
     public void setChoice(String choice) { 
-        // sets to lowercase; must validate
-        this.choice = choice;
+        choice = choice.toLowerCase();
+        if (RPSGame.validateChoice(choice) == false) {
+            this.choice = RPSGame.generateRandomChoice();
+        } else {
+            this.choice = choice;
+        }
     }
 
     public String toString() { 
