@@ -95,6 +95,7 @@ public class ArrayOps {
      */
     public static double averageStringLength(String[] array) {
         int totalLength = 0;
+        int nullCount = 0;
         int numberOfStrings = array.length;
         if (array != null) {
             for (int i = 0; i < array.length; i++) {
@@ -102,10 +103,13 @@ public class ArrayOps {
                     totalLength += array[i].length();
                 } else {
                     numberOfStrings--;
+                    nullCount++;
                 }
             }
+        } 
+        if (nullCount == array.length) {
+            return 0.0;
         }
-
         return (double) totalLength / numberOfStrings;
     }
 
