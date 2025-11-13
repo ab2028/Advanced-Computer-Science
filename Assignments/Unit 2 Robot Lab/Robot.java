@@ -5,10 +5,30 @@ public class Robot {
     private boolean isFacingRight; // true if the robot is facing right
 
     public Robot(int[] hallwayToClean, int startingPosition) {
-        // to-do: implement constructor
-        this.hallway = hallwayToClean;
-        this.position = startingPosition;
+        this.hallway = validateHallway(hallwayToClean);
+        this.position = validatePos(startingPosition);
         isFacingRight = true;
+    }
+
+    public int[] validateHallway(int[] hallway) {
+        for (int i = 0; i < hallway.length; i++) {
+            if (hallway[i] < 0) {
+                hallway[i] = 0;
+            }
+        }
+        return hallway;
+    }
+
+
+
+    public int validatePos(int position) {
+        if (position >= hallway.length) {
+            position = hallway.length - 1;
+        }
+        if (position < 0) {
+            position = 0;
+        }
+        return position;
     }
 
     /*
@@ -17,38 +37,36 @@ public class Robot {
      * @return true if the robot is blocked by a wall, false otherwise
      */
     public boolean isRobotBlockedByWall() {
-        return (isFacingRight && position == hallway.length - 1) || (!isFacingRight && position == 0);
+        return (isFacingRight && position == hallway.length - 1)
+                || (!isFacingRight && position == 0);
     }
 
     /*
      * Commands the robot to pick up an item, move forward or turn around
      */
     public void move() {
-        // to-do: implement this method
-        if (hallway[position] > 0) {
+        if (hallway[position] > 0) { // take until depleted
             hallway[position]--;
-            if (!(hallway[position] > 0)) {
-                if (isRobotBlockedByWall()) {
-                    isFacingRight = !isFacingRight;
-                    System.out.println(isFacingRight + "hi");
-                    return;
-                }
-                if (isFacingRight) {
-                    position++;
-                } else {
-                    position--;
-                }
+        }
+        if (hallway[position] == 0) { // once depleted, move/turn
+            if (isRobotBlockedByWall()) { // turn if blocked
+                isFacingRight = !isFacingRight;
+                return;
+            } // otherwise move in the correct direction
+            if (isFacingRight) {
+                position++;
+            } else {
+                position--;
             }
         }
-        
+
 
     }
 
     /**
-     * This method displays the current state of the robot and the hallway. It then
-     * calls the move() method and counts the number of moves it takes to clear the
-     * hallway. The method should display the current state of the robot after each
-     * move.
+     * This method displays the current state of the robot and the hallway. It then calls the move()
+     * method and counts the number of moves it takes to clear the hallway. The method should
+     * display the current state of the robot after each move.
      * 
      * @return the number of moves made
      */
@@ -93,7 +111,7 @@ public class Robot {
             System.out.print(" ");
         }
         System.out.println(">");
-        
+
 
     }
 
@@ -102,7 +120,7 @@ public class Robot {
     }
 
     public void setHallway(int[] hallway) {
-        this.hallway = hallway;
+        this.hallway = validateHallway(hallway);
     }
 
     public int getPosition() {
@@ -110,14 +128,14 @@ public class Robot {
     }
 
     public void setPosition(int position) {
-        this.position = position;
+        this.position = validatePos(position);
     }
 
-    public boolean isIsFacingRight() {
+    public boolean isFacingRight() {
         return isFacingRight;
     }
 
-    public void setIsFacingRight(boolean isFacingRight) {
+    public void setFacingRight(boolean isFacingRight) {
         this.isFacingRight = isFacingRight;
     }
 }
