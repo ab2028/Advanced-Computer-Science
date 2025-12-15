@@ -46,14 +46,14 @@ public class OrderProcessor {
 
     public static String[] listPremiumItems(Item[] items) {
         String[] expensiveItemsTemp = new String[items.length];
-        int count = 0;
+        int premiumCount = 0;
 
         for (Item item : items) {
             if (isPremium(item)) {
-                expensiveItemsTemp[count++] = item.getName();
+                expensiveItemsTemp[premiumCount++] = item.getName();
             }
         }
-        return trimPremiumItems(expensiveItemsTemp, count);
+        return trimPremiumItems(expensiveItemsTemp, premiumCount);
     }
 
     public static String[] trimPremiumItems(String[] temp, int count) {
