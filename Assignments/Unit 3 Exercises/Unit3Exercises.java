@@ -164,5 +164,60 @@ public class Unit3Exercises {
     }
 
 
+    public static int parsePositiveInteger(String str) {
+        if (str == null) { // if string is null, throw exception
+            throw new IllegalArgumentException("Input string cannot be null");
+        }
+        int number = Integer.parseInt(str);
+        if (number <= 0) { // return 1 if negative integer
+            return 1;
+        }
+        return number; // Method should return 1 if it's negative
+
+    }
+
+    public static String getArrayElement(String[] arr, int index) {
+
+        if (arr == null) { // if array is null, throw exception
+            throw new IllegalArgumentException("Input array cannot be null");
+        }
+
+        return arr[index];
+
+
+
+    }
+
+    public static double calculateSquareRoot(int number) {
+        if (number < 0) { // if number is negative, throw exception
+            throw new IllegalArgumentException("Input number cannot be negative");
+        }
+
+        return Math.sqrt(number);
+
+    }
+
+    public static int sumArrayElements(int[] array) {
+        if (array == null) { // if array is null, throw exception
+            throw new IllegalArgumentException("Input array cannot be null");
+        }
+
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum;
+
+    }
+
+    public static double calculatePower(double base, int exponent) {
+        if (exponent < 0) { // if exponent is negative, throw exception
+            throw new IllegalArgumentException("Exponent cannot be negative");
+        }
+
+        return Math.pow(base, exponent);
+    }
+
+
 
 }

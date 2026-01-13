@@ -199,42 +199,38 @@ public class Unit3ExercisesTester {
     }
 
     public static void testCalculateInterest() {
-        // 1. **Main Case** - Choose appropriate parameters, manually calculate the expected value,
-        // and verify that the code produces the correct output. Test with at least 2 different sets
-        // of values.
-        // 2. **Edge Case** - The principal amount cannot be negative.
-        // 3. **Edge Case** - The interest rate cannot be negative.
-        // 4. **Edge Case** - The number of years must be a positive integer.
 
         // Test Case - Main Case
         double principal = 1000.0;
         double rate = 5.0;
         int years = 2;
         // expected output: 1102.5
-        System.out.println("Expected 1102.5: " +
-                Unit3Exercises.calculateInterest(principal, rate, years)); 
+        System.out.println(
+                "Expected 1102.5: " + Unit3Exercises.calculateInterest(principal, rate, years));
 
         // Test Case - Edge Case: Negative principal
         try {
             principal = -1000.0;
             rate = 5.0;
             years = 2;
-            System.out.println("Expected exception: " +
-                    Unit3Exercises.calculateInterest(principal, rate, years));
+            System.out.println("Expected exception: "
+                    + Unit3Exercises.calculateInterest(principal, rate, years));
         } catch (Exception e) {
             System.out.println(e.toString());
-            System.out.println("The method threw an exception when the principal was negative, as intended");
+            System.out.println(
+                    "The method threw an exception when the principal was negative, as intended");
         }
         // Test Case - Edge Case: Negative rate
         try {
             principal = 1000.0;
             rate = -5.0;
             years = 2;
-            System.out.println("Expected exception: " +
-                    Unit3Exercises.calculateInterest(principal, rate, years));
+            System.out.println("Expected exception: "
+                    + Unit3Exercises.calculateInterest(principal, rate, years));
         } catch (Exception e) {
             System.out.println(e.toString());
-            System.out.println("The method threw an exception when the rate was negative, as intended");
+            System.out.println(
+                    "The method threw an exception when the rate was negative, as intended");
         }
 
         // Test Case - Edge Case: Negative years
@@ -242,20 +238,156 @@ public class Unit3ExercisesTester {
             principal = 1000.0;
             rate = 5.0;
             years = -2;
-            System.out.println("Expected exception: " +
-                    Unit3Exercises.calculateInterest(principal, rate, years));
+            System.out.println("Expected exception: "
+                    + Unit3Exercises.calculateInterest(principal, rate, years));
         } catch (Exception e) {
             System.out.println(e.toString());
-            System.out.println("The method threw an exception when the years was negative, as intended");
+            System.out.println(
+                    "The method threw an exception when the years was negative, as intended");
         }
 
 
 
     }
 
+    public static void testParsePositiveInteger() {
+        // Test Case - Main Case
+        String str = "5";
+        // expected output: 5
+        System.out.println("Expected 5: " + Unit3Exercises.parsePositiveInteger(str));
+
+        // Test Case - Edge Case: Negative number
+        String negativeStr = "-3";
+        // expected output: 1
+        System.out.println("Expected 1: " + Unit3Exercises.parsePositiveInteger(negativeStr));
+
+        // Test Case - Edge Case: Non-integer string
+        String nonIntegerStr = "abc";
+        try {
+            System.out.println(
+                    "Expected exception: " + Unit3Exercises.parsePositiveInteger(nonIntegerStr));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println(
+                    "The method threw an exception when the string was not a valid integer, as intended");
+
+        }
+        // Test Case - Edge Case: Null string
+        try {
+            str = null;
+            System.out.println("Expected exception: " + Unit3Exercises.parsePositiveInteger(str));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out
+                    .println("The method threw an exception when the string was null, as intended");
+        }
+
+    }
+
+
+    public static void testGetArrayElement() {
+        // Test Case - Main Case
+        String[] arr = {"apple", "banana", "cherry"};
+        int index = 1;
+        // expected output: "banana"
+        System.out.println("Expected banana: " + Unit3Exercises.getArrayElement(arr, index));
+
+        // Test Case - Edge Case: Null array
+        try {
+            arr = null;
+            index = 0;
+            System.out.println("Expected exception: " + Unit3Exercises.getArrayElement(arr, index));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out
+                    .println("The method threw an exception when the array was null, as intended");
+        }
+
+        // Test Case - Edge Case: Index out of bounds
+        try {
+            arr = new String[] {"apple", "banana", "cherry"};
+            index = 5;
+            System.out.println("Expected exception: " + Unit3Exercises.getArrayElement(arr, index));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println(
+                    "The method threw an exception when the index was out of bounds, as intended");
+        }
+
+    }
+
+    public static void testCalculateSquareRoot() {
+        // Test Case - Main Case
+        int number = 16;
+        // expected output: 4.0
+        System.out.println("Expected 4.0: " + Unit3Exercises.calculateSquareRoot(number));
+
+        // Test Case - Edge Case: Negative number
+        try {
+            number = -9;
+            System.out.println("Expected exception: " + Unit3Exercises.calculateSquareRoot(number));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println(
+                    "The method threw an exception when the number was negative, as intended");
+        }
+    }
+
+    public static void testSumArrayElements() {
+        // Test Case - Main Case
+        int[] array = {1, 2, 3, 4, 5};
+        // expected output: 15
+        System.out.println("Expected 15: " + Unit3Exercises.sumArrayElements(array));
+
+        // Test Case - Edge Case: Null array
+        try {
+            array = null;
+            System.out.println("Expected exception: " + Unit3Exercises.sumArrayElements(array));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out
+                    .println("The method threw an exception when the array was null, as intended");
+        }
+
+    }
+
+    public static void testCalculatePower() {
+        // Test Case - Main Case
+        double base = 2.0;
+        int exponent = 3;
+        // expected output: 8.0
+        System.out.println("Expected 8.0: " + Unit3Exercises.calculatePower(base, exponent));
+
+        // Test Case - Edge Case: Negative exponent
+        try {
+            base = 2.0;
+            exponent = -2;
+            System.out.println(
+                    "Expected exception: " + Unit3Exercises.calculatePower(base, exponent));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println(
+                    "The method threw an exception when the exponent was negative, as intended");
+        }
+    }
+
 
     public static void main(String[] args) {
-        testCalculateInterest();
+        // testCalculateStringLengthAverage();
+        // testReverseString();
+        // testFindMaxValue();
+        // testIsPalindrome();
+        // testSumEvenNumbers();
+        // testCalculateSumOfSquares();
+        // testGetNthFibonacci();
+        // testSortArrayDescending();
+        // testFindLongestWord();
+        // testCalculateInterest();
+        // testParsePositiveInteger();
+        // testGetArrayElement();
+        // testCalculateSquareRoot();
+        // testSumArrayElements();
+        // testCalculatePower();
     }
 
 
