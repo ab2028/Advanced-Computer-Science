@@ -2,23 +2,28 @@ public class MatrixFun {
     private int[][] matrix;
 
 
+    // constructors
 
     public MatrixFun(int numberOfRows, int numberOfCols) {
-        matrix = new int[numberOfRows][numberOfCols];
-        fillMatrix();
+        matrix = fillMatrix(new int[numberOfRows][numberOfCols]);
     }
 
     public MatrixFun(int[][] starterMatrix) {
         matrix = starterMatrix;
-
+        validateMatrix();
     }
 
-    public void fillMatrix() {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = (int) (Math.random() * 10);
+    public MatrixFun() {
+        matrix = fillMatrix(new int[3][3]);
+    }
+
+    public int[][] fillMatrix(int[][] mx) {
+        for (int i = 0; i < mx.length; i++) {
+            for (int j = 0; j < mx[i].length; j++) {
+                mx[i][j] = (int)(Math.random() * 10);
             }
         }
+        return mx;
     }
 
     // if matrix is not rectangular, print warning to console
@@ -32,6 +37,74 @@ public class MatrixFun {
         }
 
     }
+
+
+    // getters and setters
+
+    public int[][] getMatrix() {
+        return matrix;
+    }
+
+    public void setMatrix(int[][] matrix) {
+        this.matrix = matrix;
+    }
+
+    // methods
+
+    public String toString() { // return string , equals top and bottom borders with equal signs
+                               // depending o nlength
+        String result = "=".repeat(matrix[0].length * 2);
+        result += "\n";
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                result += matrix[i][j] + " ";
+            }
+            result += "\n";
+
+        }
+        result += "\n";
+        result += "=".repeat(matrix[0].length * 2);
+
+        return result;
+    }
+
+    public boolean equals(MatrixFun other) {
+        return this.toString().equals(other.toString());
+    }
+
+    public boolean equals(int[][] matrix) {
+        if (this.matrix.length != matrix.length) {
+            return false;
+        }
+        for (int i = 0; i < this.matrix.length; i++) {
+            if (this.matrix[i].length != matrix[i].length) {
+                return false;
+            }
+            for (int j = 0; j < this.matrix[i].length; j++) {
+                if (this.matrix[i][j] != matrix[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void replaceAll(int oldValue, int newValue) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] == oldValue) {
+                    matrix[i][j] = newValue;
+                }
+            }
+        }
+    }
+
+    public void swapRow(int rowA, int rowB) {
+        int[] temp = matrix[rowA];
+        matrix[rowA] = matrix[rowB];
+        matrix[rowB] = temp;
+    }
+
 
 
 }
