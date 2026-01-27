@@ -51,9 +51,8 @@ public class MatrixFun {
 
     // methods
 
-    public String toString() { // return string , equals top and bottom borders with equal signs
-                               // depending o nlength
-        String result = "=".repeat(matrix[0].length * 2);
+    public String toString() { 
+        String result = "=".repeat(matrix[0].length * 2 - 1);
         result += "\n";
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
@@ -62,8 +61,7 @@ public class MatrixFun {
             result += "\n";
 
         }
-        result += "\n";
-        result += "=".repeat(matrix[0].length * 2);
+        result += "=".repeat(matrix[0].length * 2 - 1);
 
         return result;
     }
