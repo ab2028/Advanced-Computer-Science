@@ -86,27 +86,50 @@ public class Unit4Exercises {
 
     // Method 1: noNegatives
     public static ArrayList<Integer> noNegatives(ArrayList<Integer> nums) {
-        // to-do: implement the method
-        return new ArrayList<>();
-
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for (Integer num : nums) {
+            if (num >= 0) {
+                result.add(num);
+            }
+        }
+        return result;
     }
+
 
     // Method 2: excludeTeenNumbers
     public static ArrayList<Integer> excludeTeenNumbers(ArrayList<Integer> nums) {
-        // to-do: implement the method
-        return new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for (Integer num : nums) {
+            if (!(num >= 13 && num <= 19)) {
+                result.add(num);
+            }
+        }
+        return result;
     }
 
     // Method 3: appendY
     public static ArrayList<String> appendY(ArrayList<String> strs) {
-        // to-do: implement the method
-        return new ArrayList<>();
+        ArrayList<String> result = new ArrayList<String>();
+        for (String str : strs) {
+            // last character y becomes yy
+            if (!(str.length() > 0 && str.charAt(str.length() - 1) == 'y')) {
+                result.add(str + "y");
+            }
+        }
+        return result;
     }
 
     // Method 4: squarePlus10
     public static ArrayList<Integer> squarePlus10(ArrayList<Integer> nums) {
-        // to-do: implement the method
-        return new ArrayList<>();
+        // exclude any results that end in 5 or 6
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for (Integer num : nums) {
+            int squaredPlus10 = num * num + 10;
+            if (!(squaredPlus10 % 10 == 5 || squaredPlus10 % 10 == 6)) {
+                result.add(squaredPlus10);
+            }
+        }
+        return result;
     }
 
 }
