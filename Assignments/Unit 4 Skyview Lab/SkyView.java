@@ -3,7 +3,8 @@ public class SkyView {
 
     public SkyView(int numberOfRows, int numberOfCols, double[] scanned) {
         if (scanned.length > numberOfRows * numberOfCols) {
-            throw new IllegalArgumentException(); // REV
+            throw new IllegalArgumentException(
+                    "Dimensions don't match. Input too large for matrix.");
         }
         this.view = new double[numberOfRows][numberOfCols];
         int index = 0;
@@ -69,11 +70,11 @@ public class SkyView {
     }
 
     public double getAverage(int startRow, int endRow, int startCol, int endCol) {
-        if (startRow < 0 || startRow > endRow || endRow >= view.length) { // ? REV
-            throw new IllegalArgumentException();
+        if (startRow < 0 || startRow > endRow || endRow >= view.length) {
+            throw new IllegalArgumentException("Invalid row argument(s).");
         }
         if (startCol < 0 || startCol > endCol || endCol >= view[0].length) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid column argument(s).");
         }
 
         double sum = 0;

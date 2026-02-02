@@ -17,16 +17,26 @@ public class Unit4ExercisesTester {
 
 
             // Test all even/all odd
-            int[] c = {2, 4, 6, 8};
+            int[] c = {0, 2, 4, 6, 8};
             int[] d = {1, 3, 5, 7};
             int[] e = Unit4Exercises.moveEvenBeforeOdd(c);
             int[] f = Unit4Exercises.moveEvenBeforeOdd(d);
             for (int i = 0; i < e.length; i++) {
                 System.out.print(e[i] + " ");
             }
+            System.out.println("");
             for (int i = 0; i < f.length; i++) {
                 System.out.print(f[i] + " ");
             }
+            System.out.println("");
+
+            // Test mixed 0/odd
+            int[] x = {0, 1, 0, 3};
+            int[] y = Unit4Exercises.moveEvenBeforeOdd(x);
+            for (int i = 0; i < y.length; i++) {
+                System.out.print(y[i] + " ");
+            }
+            System.out.println("");
         }
 
         // Test noNegatives
