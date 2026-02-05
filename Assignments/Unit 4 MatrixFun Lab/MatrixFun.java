@@ -5,6 +5,9 @@ public class MatrixFun {
     // constructors
 
     public MatrixFun(int numberOfRows, int numberOfCols) {
+        if (numberOfRows <= 0 || numberOfCols <= 0) {
+            throw new IllegalArgumentException("Number of rows and columns must be nonnegative.");
+        }
         matrix = fillMatrix(new int[numberOfRows][numberOfCols]);
     }
 
@@ -20,7 +23,7 @@ public class MatrixFun {
     public int[][] fillMatrix(int[][] mx) {
         for (int i = 0; i < mx.length; i++) {
             for (int j = 0; j < mx[i].length; j++) {
-                mx[i][j] = (int)(Math.random() * 10);
+                mx[i][j] = (int) (Math.random() * 10);
             }
         }
         return mx;
@@ -51,7 +54,7 @@ public class MatrixFun {
 
     // methods
 
-    public String toString() { 
+    public String toString() {
         String result = "=".repeat(matrix[0].length * 2 - 1);
         result += "\n";
         for (int i = 0; i < matrix.length; i++) {
@@ -98,6 +101,9 @@ public class MatrixFun {
     }
 
     public void swapRow(int rowA, int rowB) {
+        if (rowA < 0 || rowA >= matrix.length || rowB < 0 || rowB >= matrix.length) {
+            throw new IllegalArgumentException("Row indices are out of bounds.");
+        }
         int[] temp = matrix[rowA];
         matrix[rowA] = matrix[rowB];
         matrix[rowB] = temp;
