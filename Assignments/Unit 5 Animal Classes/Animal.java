@@ -1,20 +1,13 @@
+
 public abstract class Animal {
-
-    // common instance variables
     private double age;
-    private boolean isAlive;
     private String name;
-    private int hunger;
+    private boolean isAlive;
+    protected double hunger;
+    private double weight;
+    private int speed;
 
-    // common abstract methods
-    public abstract void eat(int value);
-
-    public void die() {
-        setAlive(false);
-        System.out.println(name + " has died.");
-    }
-
-    // getters and setters
+    public abstract void feed();
 
     public double getAge() {
         return age;
@@ -24,12 +17,9 @@ public abstract class Animal {
         this.age = age;
     }
 
-    public boolean isAlive() {
-        return isAlive;
-    }
-
-    public void setAlive(boolean isAlive) {
-        this.isAlive = isAlive;
+    public void die() {
+        System.out.println(name + " died.");
+        isAlive = false;
     }
 
     public String getName() {
@@ -40,17 +30,37 @@ public abstract class Animal {
         this.name = name;
     }
 
-    public int getHunger() {
-        if (hunger < 0) {
-            hunger = 0;
-        }
-        return hunger;
-    }
-
-    public void setHunger(int hunger) {
+    public void setHunger(double hunger) {
         this.hunger = hunger;
     }
 
+    public double getHunger() {
+        return hunger;
+    }
 
+    public boolean isAlive() {
+        return isAlive;
+    }
 
+    public void setAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public abstract String toString();
 }

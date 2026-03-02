@@ -1,12 +1,23 @@
 public class Dolphin extends Animal {
-    private String name;
     private int energy;
 
-    public Dolphin(String name, int age) {
-        this.name = name;
+    public Dolphin(String name, int age, double weight, int speed) {
+        setName(name);
         setAge(age);
+        setHunger(100);
         setAlive(true);
-        setHunger(0);
+        setWeight(weight);
+        setSpeed(speed);
+        this.energy = 100;
+    }
+
+    public Dolphin() {
+        setName("Anonymous Dolphin");
+        setAge(0);
+        setHunger(100);
+        setAlive(true);
+        setWeight(450.0);
+        setSpeed(6);
         this.energy = 100;
     }
 
@@ -22,10 +33,10 @@ public class Dolphin extends Animal {
 
     // methods
 
-
-    public void eat(int value) {
-        setHunger(getHunger() - value);
-        System.out.println(name + " successfully ate! Hunger level: " + getHunger()
+    @Override
+    public void feed() {
+        setHunger(getHunger() - 20);
+        System.out.println(getName() + " successfully ate! Hunger level: " + getHunger()
                 + " Energy level: " + energy);
     }
 
@@ -36,23 +47,23 @@ public class Dolphin extends Animal {
                 die();
                 return;
             }
-            System.out.println(name + " is begging for milk.");
+            System.out.println(getName() + " is begging for milk.");
             // random chance (0.8) to get milk, if successful, hunger level decreases
             if (Math.random() < 0.8) {
-                eat(20);
+                feed();
                 setAge(getAge() + 0.3); // life experience
             } else {
-                System.out.println(name + "'s mother refused. Hunger level: " + getHunger()
+                System.out.println(getName() + "'s mother refused. Hunger level: " + getHunger()
                         + " Energy level: " + energy);
             }
         } else {
-            System.out.println(name + " is too old to beg for milk.");
+            System.out.println(getName() + " is too old to beg for milk.");
         }
     }
 
     public void hunt() {
         if (getAge() >= 2) {
-            System.out.println(name + " is hunting for food.");
+            System.out.println(getName() + " is hunting for food.");
             energy -= 20;
             if (energy <= 0) {
                 die();
@@ -60,19 +71,19 @@ public class Dolphin extends Animal {
             }
             // random chance (0.6) to successfully hunt, if successful, hunger level decreases
             if (Math.random() < 0.6) {
-                eat(30);
+                feed();
                 setAge(getAge() + 0.5); // life experience
             } else {
-                System.out.println(name + " missed the prey. Hunger level: " + getHunger()
+                System.out.println(getName() + " missed the prey. Hunger level: " + getHunger()
                         + " Energy level: " + energy);
             }
         } else {
-            System.out.println(name + " is too young to hunt.");
+            System.out.println(getName() + " is too young to hunt.");
         }
     }
 
     public void sleep() {
-        System.out.println(name + " is sleeping.");
+        System.out.println(getName() + " is sleeping.");
         setHunger(getHunger() + 40);
         if (getHunger() >= 100) {
             die();
@@ -80,8 +91,14 @@ public class Dolphin extends Animal {
         setAge(getAge() + 0.2);
         energy += 50;
         System.out.println(
-                name + " woke up. Hunger level: " + getHunger() + " Energy level: " + energy);
+                getName() + " woke up. Hunger level: " + getHunger() + " Energy level: " + energy);
     }
 
+    @Override
+    public String toString() {
+        return getName() + " is a dolphin, age: " + getAge() + ", hunger: " + getHunger()
+                + ", alive: " + isAlive() + ", weight: " + getWeight() + ", speed: " + getSpeed()
+                + " Energy level: " + energy;
+    }
 
 }
