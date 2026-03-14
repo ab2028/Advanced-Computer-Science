@@ -29,6 +29,7 @@ public abstract class Monster implements ElementalAttacks {
         this.attackElementOne = attackElementOne;
         this.attackElementTwo = attackElementTwo;
     }
+    // need to validate stats
 
     // Method to get the total sum of the monster's stats
     public int getTotalStatSum() {

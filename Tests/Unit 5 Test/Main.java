@@ -11,8 +11,12 @@ public class Main {
         ArrayList<Monster> list = new ArrayList<>();
         Monster d = new Dragon("Jean");
         Monster t = new Troll("Tree");
+        Monster t2 = new Dragon("Root");
+        Monster d2 = new Dragon("Claw");
         list.add(d);
         list.add(t);
+        list.add(t2);
+        list.add(d2);
         return list;
     }
 
@@ -20,9 +24,12 @@ public class Main {
 
         // Run a tournament using monsters from getMonstersForTest():
         ArrayList<Monster> monsters = getMonstersForTest();
-        Monster winner = BattleEngine.startBattle(monsters.get(0), monsters.get(1));
+        // Monster winner = BattleEngine.startBattle(monsters.get(0), monsters.get(1));
 
-        System.out.println("Winner: " + (winner != null ? winner.getName() : "None"));
+
+        // System.out.println("Winner: " + (winner != null ? winner.getName() : "None"));
+
+        BattleEngine.BattleEveryone(monsters);
 
     }
 }

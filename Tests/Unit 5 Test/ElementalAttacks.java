@@ -11,6 +11,9 @@ public interface ElementalAttacks {
     // - The double down attack is only available once per battle.
     // - After using double down, the attack probability is 50% / 50% for Attacks 1/2
     default void attack(Monster opponent) {
+        if (opponent == null) {
+            throw new IllegalArgumentException("Opponent cannot be null!");
+        }
         Monster thisMonster = thisMonster();
         double rand = Math.random();
         if (thisMonster.hasUsedDoubleDown()) {
@@ -27,7 +30,6 @@ public interface ElementalAttacks {
                 thisMonster.performSingleElementalAttack(2, opponent);
             } else {
                 thisMonster.performDoubleDownAttack(opponent);
-                thisMonster.useDoubleDown();
             }
         }
 
@@ -40,17 +42,50 @@ public interface ElementalAttacks {
     // attackNumber: either 1 or 2
     // opponent: the opposing Monster to attack
     default void performSingleElementalAttack(int attackNumber, Monster opponent) {
+        if (opponent == null) {
+            throw new IllegalArgumentException("Opponent cannot be null!");
+        }
         Monster thisMonster = thisMonster();
-        int baseDamage = thisMonster.getAttack();
-        int STAB = 0;
-        int effectivenessMultiplier = 0;
-        int criticalMultiplier = didAttackCrit(thisMonster.getSpeed()) ? 2.0 : 1.0 ;
-        int totalDamage = baseDamage * STAB * effectivenessMultiplier * criticalMultiplier;
+        ElementType attackElement =
+                (attackNumber == 1) ? thisMonster.attackElementOne : thisMonster.attackElementTwo;
+        String attackName = (attackNumber == 1) ? thisMonster.attackNameOne : thisMonster.attackNameTwo;
 
+        int baseDamage = 10;
+        double STAB = getSTAB(attackElement, thisMonster.getElement());
+        double effectivenessMultiplier =
+                getElementalMultiplier(attackElement, opponent.getElement());
+        int criticalMultiplier = didAttackCrit(thisMonster.getSpeed()) ? 2 : 1;
+        int totalDamage = (int) (baseDamage * ((double) thisMonster.getAttack() / opponent.getDefense())
+                * STAB * effectivenessMultiplier * criticalMultiplier);
+        // System.out.println("" + baseDamage + "atk" + thisMonster.getAttack() + "def" + opponent.getDefense() + "st?" + STAB + "eff?" + effectivenessMultiplier + "crit" + criticalMultiplier);
 
         opponent.setHealth(opponent.getHealth() - totalDamage);
-        String effectiveMessage = "";
-        System.out.println(thisMonster.getName() + " used " + thisMonster.attackElementOne + "! It was " + effectiveMessage + ".");
+        System.out.println(thisMonster.getName() + " used " + attackName
+                + "! " + getEffectiveMessage(attackElement, opponent.getElement()));
+        if (criticalMultiplier == 2) {
+            System.out.println("It was a critical hit!");
+        }
+    }
+
+    static String getEffectiveMessage(ElementType attackType, ElementType opponentType) {
+        if (isSuperEffectiveAgainst(attackType, opponentType)) {
+            return "It was super effective!";
+        } 
+        if (isSuperEffectiveAgainst(opponentType, attackType)) { // switch 
+            return "It was not very effective...";
+        }
+        return "";
+    }
+
+
+    
+
+    static double getSTAB(ElementType attackType, ElementType monsterType) {
+        
+        if (attackType == monsterType) {
+            return 1.5;
+        }
+        return 1;
     }
 
 
@@ -61,13 +96,18 @@ public interface ElementalAttacks {
     // return. The
     // monster effectively loses their turn.
     default void performDoubleDownAttack(Monster opponent) {
+        if (opponent == null) {
+            throw new IllegalArgumentException("Opponent cannot be null!");
+        }
         Monster thisMonster = thisMonster();
         if (thisMonster.hasUsedDoubleDown()) {
             System.out.println("Already used this attack.");
             return;
         }
         thisMonster.performSingleElementalAttack(1, opponent);
+        System.out.println(thisMonster.getName() + " doubled down!");
         thisMonster.performSingleElementalAttack(2, opponent);
+        thisMonster.useDoubleDown();
     }
 
     /**
