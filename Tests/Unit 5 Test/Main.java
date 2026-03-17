@@ -11,12 +11,12 @@ public class Main {
         ArrayList<Monster> list = new ArrayList<>();
         Monster d = new Dragon("Jean");
         Monster t = new Troll("Tree");
-        Monster t2 = new Dragon("Root");
-        Monster d2 = new Dragon("Claw");
+        // Monster c = new Chimera("Root");
+        // Monster e = new Treant("Claw");
+        // list.add(e);
+        // list.add(c);
         list.add(d);
         list.add(t);
-        list.add(t2);
-        list.add(d2);
         return list;
     }
 

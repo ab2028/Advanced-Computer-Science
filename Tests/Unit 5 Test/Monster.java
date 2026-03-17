@@ -28,8 +28,12 @@ public abstract class Monster implements ElementalAttacks {
         this.attackNameTwo = attackNameTwo;
         this.attackElementOne = attackElementOne;
         this.attackElementTwo = attackElementTwo;
+        BattleEngine.correctStats(this);
     }
     // need to validate stats
+
+    
+
 
     // Method to get the total sum of the monster's stats
     public int getTotalStatSum() {
@@ -49,6 +53,7 @@ public abstract class Monster implements ElementalAttacks {
     // sets the health of the monster
     public void setHealth(int health) {
         this.health = health;
+        BattleEngine.correctStats(this);
     }
 
     // returns the attack of the monster
@@ -59,6 +64,7 @@ public abstract class Monster implements ElementalAttacks {
     // sets the attack of the monster
     public void setAttack(int attack) {
         this.attack = attack;
+        BattleEngine.correctStats(this);
     }
 
     // returns the defense of the monster
@@ -69,6 +75,7 @@ public abstract class Monster implements ElementalAttacks {
     // sets the defense of the monster
     public void setDefense(int defense) {
         this.defense = defense;
+        BattleEngine.correctStats(this);
     }
 
     // returns the element of the monster
@@ -89,6 +96,7 @@ public abstract class Monster implements ElementalAttacks {
     // sets the speed of the monster
     public void setSpeed(int speed) {
         this.speed = speed;
+        BattleEngine.correctStats(this);
     }
 
     // reduces the health of the monster by the damage amount
@@ -105,6 +113,8 @@ public abstract class Monster implements ElementalAttacks {
     public boolean hasUsedDoubleDown() {
         return hasUsedDoubleDown;
     }
+
+
 
     // public abstract toString method to be implemented by subclasses
     public abstract String victoryNoise();

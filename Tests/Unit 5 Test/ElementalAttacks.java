@@ -59,7 +59,7 @@ public interface ElementalAttacks {
                 * STAB * effectivenessMultiplier * criticalMultiplier);
         // System.out.println("" + baseDamage + "atk" + thisMonster.getAttack() + "def" + opponent.getDefense() + "st?" + STAB + "eff?" + effectivenessMultiplier + "crit" + criticalMultiplier);
 
-        opponent.setHealth(opponent.getHealth() - totalDamage);
+        opponent.takeDamage(totalDamage);
         System.out.println(thisMonster.getName() + " used " + attackName
                 + "! " + getEffectiveMessage(attackElement, opponent.getElement()));
         if (criticalMultiplier == 2) {

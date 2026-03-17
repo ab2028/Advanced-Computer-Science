@@ -55,12 +55,12 @@ public class BattleEngine {
     public static Monster startBattle(Monster monster1, Monster monster2) {
 
         if (monster1 == null) {
-            return win(monster2);
+            throw new IllegalArgumentException("Second monster is null!");
         }
         if (monster2 == null) {
-            return win(monster1);
+            throw new IllegalArgumentException("First monster is null!");
         }
-        if (monster1.validateStats() || monster2.validateStats())
+        // if (validateStats(monster1) || validateStats(monster2)) 
         System.out.println("== " + monster1.getName() + " vs " + monster2.getName() + " ==");
         int m1StartHealth = monster1.getHealth();
         int m2StartHealth = monster2.getHealth();
@@ -78,7 +78,7 @@ public class BattleEngine {
             temp = starting;
             starting = defending;
             defending = temp;
-        }
+        } 
         // loop will end when starting health = 0
         // ensure for tournaments everything is reset
         reset(monster1, m1StartHealth);
