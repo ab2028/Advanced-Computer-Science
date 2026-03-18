@@ -57,14 +57,16 @@ public interface ElementalAttacks {
         int criticalMultiplier = didAttackCrit(thisMonster.getSpeed()) ? 2 : 1;
         int totalDamage = (int) (baseDamage * ((double) thisMonster.getAttack() / opponent.getDefense())
                 * STAB * effectivenessMultiplier * criticalMultiplier);
+        if (totalDamage == 0) {
+            totalDamage = 1;
+        }
         // System.out.println("" + baseDamage + "atk" + thisMonster.getAttack() + "def" + opponent.getDefense() + "st?" + STAB + "eff?" + effectivenessMultiplier + "crit" + criticalMultiplier);
 
         opponent.takeDamage(totalDamage);
-        System.out.println(thisMonster.getName() + " used " + attackName
-                + "! " + getEffectiveMessage(attackElement, opponent.getElement()));
-        if (criticalMultiplier == 2) {
-            System.out.println("It was a critical hit!");
-        }
+        // System.out.println(thisMonster.getName() + " used " + attackName + "! " + getEffectiveMessage(attackElement, opponent.getElement()));
+        // if (criticalMultiplier == 2) {
+        //     System.out.println("It was a critical hit!");
+        // }
     }
 
     static String getEffectiveMessage(ElementType attackType, ElementType opponentType) {
@@ -105,7 +107,7 @@ public interface ElementalAttacks {
             return;
         }
         thisMonster.performSingleElementalAttack(1, opponent);
-        System.out.println(thisMonster.getName() + " doubled down!");
+        // System.out.println(thisMonster.getName() + " doubled down!");
         thisMonster.performSingleElementalAttack(2, opponent);
         thisMonster.useDoubleDown();
     }

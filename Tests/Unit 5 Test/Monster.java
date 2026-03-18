@@ -28,7 +28,7 @@ public abstract class Monster implements ElementalAttacks {
         this.attackNameTwo = attackNameTwo;
         this.attackElementOne = attackElementOne;
         this.attackElementTwo = attackElementTwo;
-        BattleEngine.correctStats(this);
+        // BattleEngine.correctStats(this);
     }
     // need to validate stats
 
@@ -53,7 +53,7 @@ public abstract class Monster implements ElementalAttacks {
     // sets the health of the monster
     public void setHealth(int health) {
         this.health = health;
-        BattleEngine.correctStats(this);
+        // BattleEngine.correctStats(this);
     }
 
     // returns the attack of the monster
@@ -64,7 +64,7 @@ public abstract class Monster implements ElementalAttacks {
     // sets the attack of the monster
     public void setAttack(int attack) {
         this.attack = attack;
-        BattleEngine.correctStats(this);
+        // BattleEngine.correctStats(this);
     }
 
     // returns the defense of the monster
@@ -75,7 +75,7 @@ public abstract class Monster implements ElementalAttacks {
     // sets the defense of the monster
     public void setDefense(int defense) {
         this.defense = defense;
-        BattleEngine.correctStats(this);
+        // BattleEngine.correctStats(this);
     }
 
     // returns the element of the monster
@@ -96,7 +96,7 @@ public abstract class Monster implements ElementalAttacks {
     // sets the speed of the monster
     public void setSpeed(int speed) {
         this.speed = speed;
-        BattleEngine.correctStats(this);
+        // BattleEngine.correctStats(this);
     }
 
     // reduces the health of the monster by the damage amount

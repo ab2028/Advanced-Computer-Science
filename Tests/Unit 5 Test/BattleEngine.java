@@ -61,7 +61,7 @@ public class BattleEngine {
             throw new IllegalArgumentException("First monster is null!");
         }
         // if (validateStats(monster1) || validateStats(monster2)) 
-        System.out.println("== " + monster1.getName() + " vs " + monster2.getName() + " ==");
+        // System.out.println("== " + monster1.getName() + " vs " + monster2.getName() + " ==" + monster1.getSpeed()+monster2.getSpeed());
         int m1StartHealth = monster1.getHealth();
         int m2StartHealth = monster2.getHealth();
         Monster starting = chooseStarting(monster1, monster2);
@@ -74,7 +74,7 @@ public class BattleEngine {
         }
         while (starting.getHealth() > 0) {
             starting.attack(defending);
-            displayStatus(monster1, monster2);
+            // displayStatus(monster1, monster2);
             temp = starting;
             starting = defending;
             defending = temp;
@@ -100,8 +100,8 @@ public class BattleEngine {
             return null;
         }
         monster.setHealth(monster.getHealth());
-        System.out.println(monster.getName() + " won the battle!");
-        System.out.println(monster.victoryNoise());
+        //System.out.println(monster.getName() + " won the battle!");
+        //System.out.println(monster.victoryNoise());
         return monster;
     }
 
