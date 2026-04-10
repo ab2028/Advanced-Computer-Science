@@ -1,0 +1,30 @@
+
+for i in range 0,3
+    compare card i, card i+1
+    if card i > card i+1
+        store card i, shift cards 0 to i-1 to the right, swap card i into position 0.
+    else if card i+1 < card i
+        store card i+1, shift cards 0 to 1 to the right, swap card i+1 into position 0.
+
+repeat until sorted
+
+
+
+OR
+
+for a in range (1,4)
+    for i in range a,4
+        currentmin = card 0
+        compare currentmin, card i
+        save min(currentmin, card i)
+        place max (currentmin, card i) back in its position (the blank space)
+    shift cards a, a+1, ..., current minplace - 2 to the right
+    place card current min at place a
+
+OR
+
+
+for a in range (1,5)
+    compare cards i, i+1 for i in appropriate range
+    swap if out of order
+    repeat until reach card 5-a
