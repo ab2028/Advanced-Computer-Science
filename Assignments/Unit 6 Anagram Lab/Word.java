@@ -21,10 +21,11 @@ public class Word {
 
     // uses selection sort
     public String sortWord() {
+        String lowerWord = originalWord.toLowerCase();
         ArrayList<Character> letters = new ArrayList<>();
         // make list of letters
-        for (int i = 0; i < originalWord.length(); i++) {
-            letters.add(originalWord.charAt(i));
+        for (int i = 0; i < lowerWord.length(); i++) {
+            letters.add(lowerWord.charAt(i));
         }
         // use character - number equivalent value
         for (int i = 0; i < letters.size() - 1; i++) {
@@ -33,11 +34,13 @@ public class Word {
                 if (letters.get(j) < letters.get(minIndex)) {
                     minIndex = j;
                 }
-                // swap current index i with min index once found
-                char temp = letters.get(i);
-                letters.set(i, letters.get(minIndex));
-                letters.set(minIndex, temp);
+
             }
+
+            // swap current index i with min index once found
+            char temp = letters.get(i);
+            letters.set(i, letters.get(minIndex));
+            letters.set(minIndex, temp);
 
         }
         // build string

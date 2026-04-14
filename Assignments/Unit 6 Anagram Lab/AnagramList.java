@@ -14,16 +14,17 @@ public class AnagramList extends AbstractList {
     }
 
     public boolean checkAnagram(Word word1, Word word2) {
-        return true;
+        if (word1.getSortedWord().equals(word2.getSortedWord())) {
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<Word> searchAnagrams(String key) {
         Word wkey = new Word(key);
         ArrayList<Word> result = new ArrayList<>();
         for (Word word : wordList) {
-            System.out.println(word.getSortedWord());
-            System.out.println(wkey.getSortedWord());
-            if (word.getSortedWord().equals(wkey.getSortedWord())) {
+            if (checkAnagram(word, key)) {
                 result.add(word);
             }
         }
