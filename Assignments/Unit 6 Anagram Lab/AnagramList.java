@@ -24,7 +24,7 @@ public class AnagramList extends AbstractList {
         Word wkey = new Word(key);
         ArrayList<Word> result = new ArrayList<>();
         for (Word word : wordList) {
-            if (checkAnagram(word, key)) {
+            if (checkAnagram(word, wkey)) {
                 result.add(word);
             }
         }
