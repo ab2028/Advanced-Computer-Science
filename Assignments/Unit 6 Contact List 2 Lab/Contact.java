@@ -46,6 +46,20 @@ public class Contact implements Comparable {
 
     }
 
+    public int lastCompareTo(Object other) {
+        if (other instanceof Contact) {
+            Contact otherContact = (Contact) other;
+            String details = this.lastName + " " + this.firstName + " " + this.telephoneNumber;
+            String otherDetails = otherContact.lastName + " " + otherContact.firstName + " "
+                    + otherContact.telephoneNumber;
+            return details.compareTo(otherDetails);
+        }
+        return -1;
+
+    }
+
+
+
     public String toString() {
         return "Name: " + firstName + " " + lastName + ", Telephone: " + telephoneNumber;
     }

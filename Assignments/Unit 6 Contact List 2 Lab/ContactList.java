@@ -29,9 +29,9 @@ public class ContactList extends AbstractList {
         }
     }
 
-    private boolean inList(Contact contact) {
+    public boolean inList(Contact contact) {
         for (Contact c : contactList) {
-            if (c.compareTo(contact) == 0) {
+            if (c.getTelephoneNumber().equals(contact.getTelephoneNumber())) {
                 return true;
             }
         }
@@ -64,8 +64,7 @@ public class ContactList extends AbstractList {
         for (int i = 0; i < contactList.size(); i++) {
             int minIndex = i;
             for (int j = i + 1; j < contactList.size(); j++) {
-                if (contactList.get(j).getFirstName()
-                        .compareTo(contactList.get(minIndex).getFirstName()) < 0) {
+                if (contactList.get(j).compareTo(contactList.get(minIndex)) < 0) {
                     minIndex = j;
                 }
             }
@@ -81,8 +80,7 @@ public class ContactList extends AbstractList {
         for (int i = 0; i < contactList.size(); i++) {
             int minIndex = i;
             for (int j = i + 1; j < contactList.size(); j++) {
-                if (contactList.get(j).getLastName()
-                        .compareTo(contactList.get(minIndex).getLastName()) < 0) {
+                if (contactList.get(j).lastCompareTo(contactList.get(minIndex)) < 0) {
                     minIndex = j;
                 }
             }

@@ -54,6 +54,13 @@ public class ContactListTester {
         contactList.clear();
         System.out.println("Size of contact list after clearing: " + contactList.size());
 
+        // test inList
+        System.out.println("\nTesting inList:");
+        contactList.add(contact2);
+        System.out.println("Is contact2 in the list? " + contactList.inList(contact2));
+        System.out.println("Is contact1 in the list? " + contactList.inList(contact1));
+        System.out.println(contact1.compareTo(contact1));
+
 
     }
 }
