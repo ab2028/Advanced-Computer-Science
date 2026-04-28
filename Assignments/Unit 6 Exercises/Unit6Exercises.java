@@ -22,13 +22,14 @@ public class Unit6Exercises {
         return n * factorialRecursive(n - 1);
     }
 
-    /** 
+    /**
      * Problem 2 - Fibonacci Sequence: Write a recursive and non-recursive method that returns the
      * nth number in the Fibonacci sequence.
      */
     // binet's formula
     public static int fibonacci(int n) {
-        return (int) ((Math.pow ((1 + Math.sqrt(5)) / 2.0 , n) - Math.pow ((1 - Math.sqrt(5)) / 2.0 , n)) / (Math.sqrt(5))); 
+        return (int) ((Math.pow((1 + Math.sqrt(5)) / 2.0, n)
+                - Math.pow((1 - Math.sqrt(5)) / 2.0, n)) / (Math.sqrt(5)));
     }
 
     public static int fibonacciRecursive(int n) {
@@ -50,6 +51,7 @@ public class Unit6Exercises {
     public static int truncateLast(int n) {
         return (int) (n / 10);
     }
+
     public static int sumDigits(int n) {
         int result = 0;
         while (n > 0) {
@@ -110,20 +112,24 @@ public class Unit6Exercises {
         if (str.length() == 1) {
             return str;
         }
-        return str.substring(str.length() - 1) + reverseStringRecursive(str.substring(0, str.length() - 1));
+        return str.substring(str.length() - 1)
+                + reverseStringRecursive(str.substring(0, str.length() - 1));
     }
-    
+
 
     /**
      * Problem 6 - Power of a Number: Write a recursive and non-recursive method that calculates and
      * returns the value of base raised to the power of exponent.
      */
     public static int power(int base, int exponent) {
-        return 0;
+        return (int) Math.pow(base, exponent);
     }
 
     public static int powerRecursive(int base, int exponent) {
-        return 0;
+        if (exponent == 0) {
+            return 1;
+        }
+        return base * powerRecursive(base, exponent - 1);
     }
 
     /**
@@ -131,11 +137,25 @@ public class Unit6Exercises {
      * whether a given string is a palindrome.
      */
     public static boolean isPalindrome(String str) {
+        // str has 4 or 5 then i should be 0,1
+        int numIter = str.length() / 2;
 
-        return false;
+        for (int i = 0; i < numIter; i++) {
+            if (!(str.charAt(i) == str.charAt(str.length() - 1 - i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static boolean isPalindromeRecursive(String str) {
+        if (str.length() == 0 || str.length() == 1) {
+            return true;
+        }
+        String peeledStr = str.substring(1, str.length() - 1);
+        if (str.charAt(0) == str.charAt(str.length() - 1)) {
+            return isPalindromeRecursive(peeledStr);
+        }
         return false;
     }
 
@@ -145,11 +165,26 @@ public class Unit6Exercises {
      */
     // EUCLIDEAN ALGORITHM
     public static int gcd(int a, int b) {
-        return 0;
+        int poss = Math.max(a, b) / 2;
+        int currMax = 1;
+        for (int i = 2; i < poss; i++) {
+            if ((a % i) == 0 && (b % i) == 0) {
+                if (i > currMax) {
+                    currMax = i;
+                }
+            }
+        }
+        return currMax;
     }
 
     public static int gcdRecursive(int a, int b) {
-        return 0;
+        if (a == 0) {
+            return b;
+        }
+        if (b == 0) {
+            return a;
+        }
+        return gcdRecursive(Math.min(a, b), Math.max(a, b) % Math.min(a, b));
     }
 
     /**
@@ -160,12 +195,21 @@ public class Unit6Exercises {
      */
 
     public static int bunnyEars(int bunnies) {
-        return 0;
+        int even = bunnies / 2; // truncated
+        int odd = bunnies - even;
+        return odd * 2 + even * 3;
 
     }
 
     public static int bunnyEarsRecursive(int bunnies) {
-        return 0;
+        if (bunnies == 0) {
+            return 0;
+        }
+        if (bunnies % 2 == 0) {
+            return 3 + bunnyEarsRecursive(bunnies - 1);
+        } else {
+            return 2 + bunnyEarsRecursive(bunnies - 1);
+        }
     }
 
     /**
@@ -181,9 +225,10 @@ public class Unit6Exercises {
         return -1;
     }
 
-     // DO NOT EDIT! Work on the helper version above this method. This method is to be used for testing purposes only.
-     public static int binarySearchRecursive(int[] arr, int key) {
-        return binarySearchRecursiveHelper(arr, key, 0, arr.length-1); // Element not found
+    // DO NOT EDIT! Work on the helper version above this method. This method is to be used for
+    // testing purposes only.
+    public static int binarySearchRecursive(int[] arr, int key) {
+        return binarySearchRecursiveHelper(arr, key, 0, arr.length - 1); // Element not found
     }
 
 

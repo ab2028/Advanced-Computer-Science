@@ -1,32 +1,32 @@
 public class Unit6ExercisesTester {
 
     public static void main(String[] args) {
-        // Test Problem 1: Factorial
-        testFactorial();
+        // // Test Problem 1: Factorial
+        // testFactorial();
 
-        // Test Problem 2: Fibonacci Sequence
-        testFibonacci();
+        // // Test Problem 2: Fibonacci Sequence
+        // testFibonacci();
 
-        // Test Problem 3: Sum of Digits
-        testSumDigits();
+        // // Test Problem 3: Sum of Digits
+        // testSumDigits();
 
-        // Test Problem 4: Count X
-        testCountX();
+        // // Test Problem 4: Count X
+        // testCountX();
 
-        // Test Problem 5: Reverse String
-        testReverseString();
+        // // Test Problem 5: Reverse String
+        // testReverseString();
 
-        // // Test Problem 6: Power of a Number
-        // testPower();
+        // Test Problem 6: Power of a Number
+        testPower();
 
-        // // Test Problem 7: Palindrome Checker
-        // testIsPalindrome();
+        // Test Problem 7: Palindrome Checker
+        testIsPalindrome();
 
-        // // Test Problem 8: Greatest Common Divisor (GCD)
-        // testGCD();
+        // Test Problem 8: Greatest Common Divisor (GCD)
+        testGCD();
 
-        // // Test Problem 9: Bunny Ears
-        // testBunnyEars();
+        // Test Problem 9: Bunny Ears
+        testBunnyEars();
 
         // // Test Problem 10: Binary Search
         // testBinarySearch();
