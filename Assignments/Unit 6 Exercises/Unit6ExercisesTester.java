@@ -16,20 +16,20 @@ public class Unit6ExercisesTester {
         // // Test Problem 5: Reverse String
         // testReverseString();
 
-        // Test Problem 6: Power of a Number
-        testPower();
+        // // Test Problem 6: Power of a Number
+        // testPower();
 
         // Test Problem 7: Palindrome Checker
         testIsPalindrome();
 
-        // Test Problem 8: Greatest Common Divisor (GCD)
-        testGCD();
+        // // Test Problem 8: Greatest Common Divisor (GCD)
+        // testGCD();
 
-        // Test Problem 9: Bunny Ears
-        testBunnyEars();
+        // // Test Problem 9: Bunny Ears
+        // testBunnyEars();
 
-        // // Test Problem 10: Binary Search
-        // testBinarySearch();
+        // Test Problem 10: Binary Search
+        testBinarySearch();
     }
 
     private static void testFactorial() {

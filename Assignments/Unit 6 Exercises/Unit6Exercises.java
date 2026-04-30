@@ -5,6 +5,9 @@ public class Unit6Exercises {
      * of a given number n.
      */
     public static int factorial(int n) {
+        if (n < 0) {
+            return 0;
+        }
         int result = 1;
 
         while (n > 0) {
@@ -16,6 +19,9 @@ public class Unit6Exercises {
     }
 
     public static int factorialRecursive(int n) {
+        if (n < 0) {
+            return 0;
+        }
         if (n == 0) {
             return 1;
         }
@@ -28,11 +34,17 @@ public class Unit6Exercises {
      */
     // binet's formula
     public static int fibonacci(int n) {
+        if (n < 0) {
+            return 0;
+        }
         return (int) ((Math.pow((1 + Math.sqrt(5)) / 2.0, n)
                 - Math.pow((1 - Math.sqrt(5)) / 2.0, n)) / (Math.sqrt(5)));
     }
 
     public static int fibonacciRecursive(int n) {
+        if (n < 0) {
+            return 0;
+        }
         if (n == 0) {
             return 0;
         }
@@ -53,6 +65,9 @@ public class Unit6Exercises {
     }
 
     public static int sumDigits(int n) {
+        if (n < 0) {
+            return 0;
+        }
         int result = 0;
         while (n > 0) {
             result += (n % 10);
@@ -63,6 +78,9 @@ public class Unit6Exercises {
     }
 
     public static int sumDigitsRecursive(int n) {
+        if (n < 0) {
+            return 0;
+        }
         if (n < 10) {
             return n;
         }
@@ -74,6 +92,7 @@ public class Unit6Exercises {
      * occurrences of 'x' in a given string.
      */
     public static int countX(String str) {
+        str = str.toLowerCase();
         int result = 0;
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == 'x') {
@@ -84,6 +103,7 @@ public class Unit6Exercises {
     }
 
     public static int countXRecursive(String str) {
+        str = str.toLowerCase();
         if (str.length() == 0) {
             return 0;
         }
@@ -137,6 +157,7 @@ public class Unit6Exercises {
      * whether a given string is a palindrome.
      */
     public static boolean isPalindrome(String str) {
+        str = str.toLowerCase();
         // str has 4 or 5 then i should be 0,1
         int numIter = str.length() / 2;
 
@@ -149,6 +170,7 @@ public class Unit6Exercises {
     }
 
     public static boolean isPalindromeRecursive(String str) {
+        str = str.toLowerCase();
         if (str.length() == 0 || str.length() == 1) {
             return true;
         }
@@ -195,6 +217,9 @@ public class Unit6Exercises {
      */
 
     public static int bunnyEars(int bunnies) {
+        if (bunnies < 0) {
+            return 0;
+        }
         int even = bunnies / 2; // truncated
         int odd = bunnies - even;
         return odd * 2 + even * 3;
@@ -202,6 +227,9 @@ public class Unit6Exercises {
     }
 
     public static int bunnyEarsRecursive(int bunnies) {
+        if (bunnies < 0) {
+            return 0;
+        }
         if (bunnies == 0) {
             return 0;
         }
@@ -217,12 +245,37 @@ public class Unit6Exercises {
      * binary search algorithm to find and return the index of a given element in a sorted array.
      */
     public static int binarySearch(int[] arr, int key) {
+        int low = 0;
+        int high = arr.length - 1; // inclusive
+        while (low <= high) {
+            int mid = (high + low) / 2; // is this faulty?
 
-        return -1; // Element not found
+            if (arr[mid] == key) {
+                return mid;
+            } else if (arr[mid] < key) { // we're too low, search right half
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+
+
+        }
+        return -1;
     }
 
     public static int binarySearchRecursiveHelper(int[] arr, int key, int low, int high) {
-        return -1;
+        if (low > high) {
+            return -1;
+        }
+        int mid = (high + low) / 2;
+        if (arr[mid] == key) {
+            return mid;
+        }
+        if (key < arr[mid]) {
+            return binarySearchRecursiveHelper(arr, key, low, mid - 1);
+        } else {
+            return binarySearchRecursiveHelper(arr, key, mid + 1, high);
+        }
     }
 
     // DO NOT EDIT! Work on the helper version above this method. This method is to be used for
