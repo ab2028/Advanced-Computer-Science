@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ot6xhj38c7ew"]
 
 [ext_resource type="Texture2D" uid="uid://ccate38dt0npp" path="res://assets/character/idle/Idle_00.png" id="1_f1ej7"]
+[ext_resource type="Script" uid="uid://b4r37ctxr5xby" path="res://scripts/player.gd" id="1_oprun"]
 [ext_resource type="Texture2D" uid="uid://c47lrrd8d5tmw" path="res://assets/character/idle/Idle_01.png" id="2_oprun"]
 [ext_resource type="Texture2D" uid="uid://cbstakbvbvwxa" path="res://assets/character/idle/Idle_02.png" id="3_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://d1gedd2576n1c" path="res://assets/character/idle/Idle_03.png" id="4_qfm1y"]
@@ -70,6 +71,7 @@ radius = 28.0
 height = 110.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1391660142]
+script = ExtResource("1_oprun")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=499576495]
 scale = Vector2(0.6, 0.6)
